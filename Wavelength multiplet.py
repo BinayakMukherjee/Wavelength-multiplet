@@ -17,15 +17,22 @@ def peak_posn_s(lambdas,h,k,l,lattice_param):
     for i in range(0, len(lambdas)):
         twoTheta.append(2*numpy.arcsin(lambdas[i]/(2*(d_hkl))))
     value = (numpy.rad2deg(twoTheta))
-    print(value)
-    #twoTheta_rad = numpy.deg2rad(numpy.asarray(twoTheta))
+    '''value = []
+    for j in range(0,len(lambdas)):
+        a = 2 * numpy.sin(twoTheta[j] / 2)
+        print(a)
+        b = lambdas[j]
+        print(b)
+        print(format(a/b, '.15f'))
+        value.append(a/b)
+    #print(value)'''
     return value
 
 def plot(lambdas,x,h, k, l, lattice_param,peak_weight):
     for i in range(0, len(lambdas)):
         plt.plot(x, intensity(x, peak_posn_s(lambdas, h, k, l, lattice_param)[i], sigmas[i]) * peak_weight[i])
     plt.plot(x, total_intensity(x, lambdas, h, k, l, lattice_param, peak_weight))
-#====================================================================================================================#
+#======================================================================================================================#
 lattice_param = 3.62
 hkl = open("hkl.txt").readlines()
 h = []
@@ -47,7 +54,7 @@ for i in range(0, len(wavelengths)):
     peak_weight.append(float(row[1]))
     sigmas.append(float(row[2]))
 
-x = numpy.arange(0,180,0.001) #2/lambdas[0]
+x = numpy.arange(0,2.5,0.001) #2/lambdas[0]
 for i in range(0,len(h)):
     plot(lambdas,x,h[i],k[i],l[i],lattice_param,peak_weight)
 
