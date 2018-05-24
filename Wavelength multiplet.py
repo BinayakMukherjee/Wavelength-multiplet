@@ -25,7 +25,7 @@ def plot(lambdas,x,h, k, l, lattice_param,peak_weight):
     for i in range(0, len(lambdas)):
         plt.plot(x, intensity(x, peak_posn_s(lambdas, h, k, l, lattice_param)[i], sigmas[i]) * peak_weight[i])
     plt.plot(x, total_intensity(x, lambdas, h, k, l, lattice_param, peak_weight))
-#=====================================================================================================================#
+#====================================================================================================================#
 lattice_param = 3.62
 hkl = open("hkl.txt").readlines()
 h = []
