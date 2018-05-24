@@ -1,7 +1,7 @@
 import numpy
 import matplotlib.pyplot as plt
 import scipy.stats
-
+#======================================================================================================================#
 def intensity(s,mu,sigma):
     value = scipy.stats.norm.pdf(s,mu,sigma)
     return value
