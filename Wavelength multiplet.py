@@ -16,16 +16,16 @@ def peak_posn_s(lambdas,h,k,l,lattice_param):
     twoTheta = []
     for i in range(0, len(lambdas)):
         twoTheta.append(2*numpy.arcsin(lambdas[i]/(2*(d_hkl))))
-    value = (numpy.rad2deg(twoTheta))
-    '''value = []
+    #value = (numpy.rad2deg(twoTheta))
+    value = []
     for j in range(0,len(lambdas)):
         a = 2 * numpy.sin(twoTheta[j] / 2)
         print(a)
         b = lambdas[j]
         print(b)
-        print(format(a/b, '.15f'))
+        #print(format(a/b, '.15f'))
         value.append(a/b)
-    #print(value)'''
+    print(value)
     return value
 
 def plot(lambdas,x,h, k, l, lattice_param,peak_weight):
